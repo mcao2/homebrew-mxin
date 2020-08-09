@@ -10,15 +10,13 @@ class Megatools < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "glib-networking"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
 
   uses_from_macos "curl"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}"
+    system "make", "-j4"
     system "make", "install"
   end
 
