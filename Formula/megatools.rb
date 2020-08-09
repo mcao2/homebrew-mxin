@@ -6,18 +6,20 @@ class Megatools < Formula
   sha256 "ff203193190077a52a542858050a1579a59e1a2e59162cb8f9d1e396b446d5c5"
   license "GPL-2.0"
 
+  depends_on "ninja" => :build
   depends_on "meson" => :build
   depends_on "asciidoc" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "glib-networking"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   uses_from_macos "curl"
 
   def install
     system "meson","--prefix=#{prefix}", "build"
-    system "ninja", "-C build install"
+    system "ninja", "-C", "build"
+    system "ninja", "-C", "build", "install"
   end
 
   test do
