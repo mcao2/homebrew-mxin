@@ -1,7 +1,8 @@
-class Megatools1110Git < Formula
+class Megatools < Formula
   desc "Command-line client for Mega.co.nz"
   homepage "https://megatools.megous.com/"
   url "https://megatools.megous.com/builds/experimental/megatools-1.11.0-git-20200503.tar.gz"
+  version "1.11.0"
   sha256 "ff203193190077a52a542858050a1579a59e1a2e59162cb8f9d1e396b446d5c5"
   license "GPL-2.0"
 
